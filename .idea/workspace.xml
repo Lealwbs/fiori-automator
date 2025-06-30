@@ -20,9 +20,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2zE8La29qXuqU8D0NYlIO7dw3ho" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,8 +35,10 @@
     "Python.5_adicionar_bloco.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Seidor/Documents/GitHub/fiori-automator",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,6 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1751284819253</updated>
       <workItem from="1751284820238" duration="8617000" />
+      <workItem from="1751296267047" duration="192000" />
     </task>
     <task id="LOCAL-00001" summary="add fiori automatization step 4 and 5">
       <option name="closed" value="true" />
