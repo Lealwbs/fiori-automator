@@ -3,6 +3,7 @@ import pyperclip as pc
 import time
 
 dados = [
+    # GLOBAL
     ["S4TAX_0001", "/S4TAX/0001", "Configurações de ambiente"],
     ["S4TAX_0002", "/S4TAX/0002", "Configurações de comunicação"],
     ["S4TAX_0003", "/S4TAX/0003", "Habilitar tipo de documento fiscal"],
@@ -23,6 +24,8 @@ dados = [
     ["S4TAX_CUTE", "/S4TAX/CUTE", "Editor de tabelas customizado"],
     ["S4TAX_MENU", "/S4TAX/MENU", "Lista de transações por módulos 4Tax"],
     ["S4TAX_TASKS", "/S4TAX/TASKS", "Tarefas de instalação"],
+
+    #OUTBOUND
     ["S4TAX_CCE_PRINT", "/S4TAX/CCE_PRINT", "Impressão de carta de correção dfe's"],
     ["S4TAX_DFE_001", "/S4TAX/DFE_001", "Configuração de e-mail para DFE's"],
     ["S4TAX_DFE_002", "/S4TAX/DFE_002", "Configurações gerais DF-e"],
@@ -38,6 +41,8 @@ dados = [
     ["S4TAX_DFE_012", "/S4TAX/DFE_012", "Conciliação de documentos"],
     ["S4TAX_DFE_013", "/S4TAX/DFE_013", "URL base do serviço de consulta"],
     ["S4TAX_STATUS", "/S4TAX/STATUS", "Status de documentos fiscais"],
+
+    #NFS-e
     # ["S4TAX_NFSE_001", "/S4TAX/NFSE_001", "Cadastro de categorias de nota NFS-e"],
     # ["S4TAX_NFSE_002", "/S4TAX/NFSE_002", "Valores customizados do item NFS-e"],
     # ["S4TAX_NFSE_003", "/S4TAX/NFSE_003", "Valores customizados da filial NFS-e"],
@@ -52,19 +57,27 @@ dados = [
     # ["S4TAX_NFSE_012", "/S4TAX/NFSE_012", "Dashboard para documentos NFS-e"],
     # ["S4TAX_NFSE_013", "/S4TAX/NFSE_013", "Editor de dados para documentos NFSe"],
     # ["S4TAX_NFSE_MONITOR", "/S4TAX/NFSE_MONITOR", "Monitor de NFS-e"],
-    ["S4TAX_SUPP_001", "/S4TAX/SUPP_001", "Configurações gerais 4unity"],
-    ["S4TAX_SUPP_002", "/S4TAX/SUPP_002", "Etapas documentos 4Unity"],
-    ["S4TAX_SUPP_003", "/S4TAX/SUPP_003", "Editor de dados de documentos 4Unity"],
-    ["S4TAX_SUPP_004", "/S4TAX/SUPP_004", "Monitor 4Unity"],
-    ["S4TAX_SUPP_005", "/S4TAX/SUPP_005", "Reintegração de fornecedores"],
-    ["S4TAX_SUPP_006", "/S4TAX/SUPP_006", "Cadastro tag 4Unity em massa"],
-    ["S4TAX_SUPP_007", "/S4TAX/SUPP_007", "Monitor pedido de compras"],
+
+    #Portal de fornecedores
+    # ["S4TAX_SUPP_001", "/S4TAX/SUPP_001", "Configurações gerais 4unity"],
+    # ["S4TAX_SUPP_002", "/S4TAX/SUPP_002", "Etapas documentos 4Unity"],
+    # ["S4TAX_SUPP_003", "/S4TAX/SUPP_003", "Editor de dados de documentos 4Unity"],
+    # ["S4TAX_SUPP_004", "/S4TAX/SUPP_004", "Monitor 4Unity"],
+    # ["S4TAX_SUPP_005", "/S4TAX/SUPP_005", "Reintegração de fornecedores"],
+    # ["S4TAX_SUPP_006", "/S4TAX/SUPP_006", "Cadastro tag 4Unity em massa"],
+    # ["S4TAX_SUPP_007", "/S4TAX/SUPP_007", "Monitor pedido de compras"],
     # ["S4TAX_SUPP_008", "/S4TAX/SUPP_008", "Carga de parceiros para integração"],
+
+    #Parceiro de Negócio
     ["S4TAX_PART_001", "/S4TAX/PART_001", "Integrar Parceiro de Negócio"],
+
+    #Serviços
     # ["S4TAX_4SER_001", "/S4TAX/4SER_001", "Monitor apontamentos 4Service"],
     # ["S4TAX_4SER_002", "/S4TAX/4SER_002", "Relatório de horas apontadas (CSV)"],
     # ["S4TAX_4SER_003", "/S4TAX/4SER_003", "Configurações básicas 4service"],
     # ["S4TAX_4SER_004", "/S4TAX/4SER_004", "Configurações de integração 4Service"],
+
+    #Bank
     # ["S4TAX_BANK_001", "/S4TAX/BANK_001", "Configurações de contas"],
     # ["S4TAX_BANK_002", "/S4TAX/BANK_002", "Configuração geral"],
     # ["S4TAX_BANK_003", "/S4TAX/BANK_003", "Monitor de boletos bancários"],
@@ -140,7 +153,7 @@ def main():
     # Tome cuidado que parece que esse n é 1 a menos da quantidade de itens que tem
     # Ou seja, por exemplo, se tiver aparecendo "28", quer dizer que já tem 29 itens cadastrados
     # Assim o indexInicio deve ser 29, pois já foram cadastrados 29 itens.
-    preencherIniciandoEm(42)
+    preencherIniciandoEm(indexInicio=0, tempoEspera=2)
 
 
 main()
