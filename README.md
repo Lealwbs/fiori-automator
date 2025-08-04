@@ -1,3 +1,4 @@
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 # Fiori Automator
 
 Automatização via scripts Python do processo de Fiorização do produto S4TAX no SAP. Este projeto contém scripts que automatizam a criação de atribuições de destino e adição de blocos no ambiente Fiori.
