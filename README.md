@@ -173,6 +173,7 @@ Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICEN
 ## 👥 Autores
 
 - **Lealwbs** - *Desenvolvimento inicial* - [Lealwbs](https://github.com/Lealwbs)
+- **RenatoMAP77** - *Contribuições adicionais* - [RenatoMAP77](https://github.com/RenatoMAP77)
 
 ## 📞 Suporte
 
