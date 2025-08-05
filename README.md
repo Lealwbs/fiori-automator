@@ -119,8 +119,9 @@ python FioriAutomatorGUI.py
 ### ⚙️ Configurações Iniciais
 
 #### 1. Configurar Parâmetros Básicos
-- **Índice Inicial**: Número de itens já processados (para retomar execução)
-- **Tempo de Espera**: Intervalo em segundos entre ações (ajuste conforme velocidade do sistema)
+- **Índice Inicial**: Número de itens já processados (Só usar caso queira retomar de um ponto específico)
+  - **Exemplo**: Se já processou 10 itens, coloque 10 para continuar do 11º
+- **Tempo de Espera**: Intervalo em segundos entre ações (ajuste conforme quiser, recomendado 1 a 1.5 segundos)
 
 #### 2. Configurar Dados para Processamento
 - Clique em "📋 Configurar Dados"
@@ -160,15 +161,18 @@ python FioriAutomatorGUI.py
 
 1. **Prepare o SAP:**
    - Acesse o Fiori Launchpad em modo de edição
-   - Posicione-se no local onde adicionar blocos
+   - Navegue para a parte de adicionar blocos
 
 2. **Configure e Execute:**
-   - Selecione "🧩 Adicionar Bloco"
+   - Selecione "🧩 Criar Bloco"
+   - Selecione App Launcher - estático
+   - Clique no novo Bloco e depois em Configurar
    - Clique em "▶️ Executar"
    - Confirme na janela de diálogo
 
 3. **Controle Manual:**
    - O sistema aguardará você pressionar **CTRL** para cada item
+   - Como esse processo ainda é semi-automático, você precisa de repetir o passo 2.
    - Pressione CTRL quando estiver pronto para processar o próximo
    - Acompanhe o log para ver qual item será processado
 
@@ -381,11 +385,7 @@ Antes de executar o Fiori Automator GUI, verifique:
 
 - [ ] Python 3.7+ instalado
 - [ ] Todas as dependências instaladas (`pip install -r requirements.txt`)
-- [ ] SAP GUI funcionando corretamente
 - [ ] Acesso ao ambiente SAP Fiori configurado
-- [ ] Ambiente de teste preparado (recomendado)
-- [ ] Backup dos dados atual (se necessário)
-- [ ] Monitor com resolução adequada (1920x1080 recomendado)
 - [ ] Nenhum outro processo interferindo com mouse/teclado
 
 ---
