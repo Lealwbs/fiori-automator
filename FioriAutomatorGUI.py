@@ -57,6 +57,7 @@ class FioriAutomatorGUI:
                 ["S4TAX_DFE_011", "/S4TAX/DFE_011", "Download de dfe's em massa local"],
                 ["S4TAX_DFE_012", "/S4TAX/DFE_012", "Conciliação de documentos"],
                 ["S4TAX_DFE_013", "/S4TAX/DFE_013", "URL base do serviço de consulta"],
+                ["S4TAX_DFE_014", "/S4TAX/DFE_014", "Configurações Reforma Tributária"],
                 ["S4TAX_STATUS", "/S4TAX/STATUS", "Status de documentos fiscais"],
             ],
             "NFS-e": [
@@ -573,7 +574,7 @@ class FioriAutomatorGUI:
                 time.sleep(tempo_espera)
 
                 py.press('tab', 3)  # Símbolo
-                self.type_text('sap-icon://settings')
+                self.type_text('sap-icon://action-settings')
                 time.sleep(tempo_espera)
 
                 py.press('tab', 3)  # Objeto Semântico
