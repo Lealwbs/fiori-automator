@@ -85,9 +85,12 @@ class FioriAutomatorGUI:
                 ["S4TAX_SUPP_006", "/S4TAX/SUPP_006", "Cadastro tag 4Unity em massa"],
                 ["S4TAX_SUPP_007", "/S4TAX/SUPP_007", "Monitor pedido de compras"],
                 ["S4TAX_SUPP_008", "/S4TAX/SUPP_008", "Carga de parceiros para integração"],
+                ["S4TAX_SUPP_009", "/S4TAX/SUPP_009", "Configuração tipos pedido de compra"],
             ],
             "PARCEIRO": [
                 ["S4TAX_PART_001", "/S4TAX/PART_001", "Integrar Parceiro de Negócio"],
+                ["S4TAX_PART_002", "/S4TAX/PART_002", "Monitor de parceiros"],
+                ["S4TAX_PART_003", "/S4TAX/PART_003", "Configurações de parceiro"],
             ],
             "4SERVICE": [
                 ["S4TAX_4SER_001", "/S4TAX/4SER_001", "Monitor apontamentos 4Service"],
