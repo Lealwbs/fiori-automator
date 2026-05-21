@@ -30,6 +30,8 @@ Se você possuir planilhas contendo todos os dados (como as exibidas abaixo, sep
 
 Antes de copiar, verifique se os objetos listados em cada grupo atendem às suas necessidades. Caso precise realizar ajustes, copie a tabela correspondente para uma planilha local, edite conforme necessário (adicionando, removendo ou modificando objetos), e só então cole os dados finais no "Objetos Semânticos - visão do cliente" do ambiente do cliente.
 
+Caso você esteja lendo pelo repósitorio [FioriAutomator](https://github.com/Lealwbs/fiori-automator), acesse a a pasta `objetos_semanticos` para encontrar as planilhas com os objetos semânticos organizados por grupo (GLOBAL, OUTBOUND, NFS-e, 4UNITY, PARCEIRO, 4SERVICE, BANK).
+
 <br>
 
 <h3> 🌐 Global – Menu de transações modulares </h3>
