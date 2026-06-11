@@ -306,10 +306,128 @@ class FioriAutomatorGUI:
         
         # Atualiza o contador na interface
         self.contador_label.config(text=f"📊 {total_itens} itens selecionados")
-        
+
+        # Atualiza preview do índice
+        self.atualizar_preview_indice()
+
         # Adiciona informação no status
         self.update_status(f"Pronto - {total_itens} itens selecionados", '#27ae60')
         
+    def atualizar_preview_indice(self):
+        """Atualiza o label que mostra o item correspondente ao índice digitado"""
+        if not hasattr(self, 'indice_preview_label'):
+            return
+        try:
+            idx = int(self.index_var.get())
+            if 0 <= idx < len(self.dados):
+                item = self.dados[idx]
+                texto = f"→  [{idx}]  {item[0]}  —  {item[2]}"
+                cor = '#2c3e50'
+            elif len(self.dados) == 0:
+                texto = "Lista vazia — configure as categorias primeiro"
+                cor = '#e74c3c'
+            else:
+                texto = f"⚠️  Índice {idx} fora do intervalo (0 – {len(self.dados) - 1})"
+                cor = '#e74c3c'
+        except ValueError:
+            texto = "Índice inválido"
+            cor = '#e74c3c'
+        self.indice_preview_label.config(text=texto, fg=cor)
+
+    def abrir_selecao_indice(self):
+        """Abre janela com tabela de itens para seleção visual do índice inicial"""
+        if not self.dados:
+            messagebox.showwarning("Aviso", "Nenhum dado disponível. Configure as categorias primeiro.")
+            return
+
+        janela = tk.Toplevel(self.root)
+        janela.title("📋 Selecionar Índice Inicial")
+        janela.geometry("760x500")
+        janela.configure(bg='#f0f0f0')
+        janela.transient(self.root)
+        janela.grab_set()
+
+        # Título
+        titulo_frame = tk.Frame(janela, bg='#2c3e50', height=48)
+        titulo_frame.pack(fill='x', padx=10, pady=(10, 0))
+        titulo_frame.pack_propagate(False)
+        tk.Label(titulo_frame, text="🎯 Selecionar Item de Início",
+                font=('Arial', 13, 'bold'), fg='white', bg='#2c3e50').pack(expand=True)
+
+        # Barra de pesquisa
+        search_frame = tk.Frame(janela, bg='#f0f0f0')
+        search_frame.pack(fill='x', padx=10, pady=8)
+        tk.Label(search_frame, text="🔍 Filtrar:", font=('Arial', 10), bg='#f0f0f0').pack(side='left')
+        search_var = tk.StringVar()
+        search_entry = tk.Entry(search_frame, textvariable=search_var, font=('Arial', 10), width=35)
+        search_entry.pack(side='left', padx=(5, 0))
+        search_entry.focus_set()
+
+        # Treeview
+        tree_frame = tk.Frame(janela, bg='#f0f0f0')
+        tree_frame.pack(fill='both', expand=True, padx=10)
+
+        cols = ('#', 'Código', 'Caminho', 'Descrição')
+        tree = ttk.Treeview(tree_frame, columns=cols, show='headings', selectmode='browse')
+        tree.heading('#', text='#')
+        tree.heading('Código', text='Código')
+        tree.heading('Caminho', text='Caminho')
+        tree.heading('Descrição', text='Descrição')
+        tree.column('#', width=45, stretch=False, anchor='center')
+        tree.column('Código', width=130, stretch=False)
+        tree.column('Caminho', width=140, stretch=False)
+        tree.column('Descrição', width=390)
+
+        vsb = ttk.Scrollbar(tree_frame, orient='vertical', command=tree.yview)
+        tree.configure(yscrollcommand=vsb.set)
+        tree.pack(side='left', fill='both', expand=True)
+        vsb.pack(side='right', fill='y')
+
+        # Popula a árvore respeitando o filtro
+        def popular_tree(filtro=''):
+            tree.delete(*tree.get_children())
+            filtro_lower = filtro.lower()
+            for i, item in enumerate(self.dados):
+                if (not filtro_lower
+                        or filtro_lower in str(i)
+                        or filtro_lower in item[0].lower()
+                        or filtro_lower in item[2].lower()):
+                    tree.insert('', 'end', iid=str(i), values=(i, item[0], item[1], item[2]))
+
+        popular_tree()
+
+        # Destaca o índice atual
+        try:
+            idx_atual = str(int(self.index_var.get()))
+            if tree.exists(idx_atual):
+                tree.selection_set(idx_atual)
+                tree.see(idx_atual)
+        except ValueError:
+            pass
+
+        search_var.trace_add('write', lambda *_: popular_tree(search_var.get()))
+
+        # Rodapé: info + botões
+        info_label = tk.Label(janela,
+                             text=f"Total: {len(self.dados)} itens  |  Duplo-clique ou selecione e clique Confirmar",
+                             font=('Arial', 9, 'italic'), bg='#f0f0f0', fg='#7f8c8d')
+        info_label.pack(pady=(4, 0))
+
+        btn_frame = tk.Frame(janela, bg='#f0f0f0')
+        btn_frame.pack(fill='x', padx=10, pady=8)
+
+        def confirmar():
+            sel = tree.selection()
+            if sel:
+                self.index_var.set(sel[0])
+            janela.destroy()
+
+        tree.bind('<Double-1>', lambda _: confirmar())
+        tk.Button(btn_frame, text="✅ Confirmar", command=confirmar,
+                 font=('Arial', 10, 'bold'), bg='#27ae60', fg='white', width=12).pack(side='right', padx=(5, 0))
+        tk.Button(btn_frame, text="❌ Cancelar", command=janela.destroy,
+                 font=('Arial', 10), bg='#95a5a6', fg='white', width=12).pack(side='right')
+
     def setup_ui(self):
         # Título principal
         title_frame = tk.Frame(self.root, bg='#2c3e50', height=80)
@@ -336,21 +454,35 @@ class FioriAutomatorGUI:
         row1_frame.pack(fill='x', padx=10, pady=10)
         
         # Índice Inicial
-        tk.Label(row1_frame, text="Índice Inicial:", 
+        tk.Label(row1_frame, text="Índice Inicial:",
                 font=('Arial', 10), bg='#f0f0f0').pack(side='left')
         self.index_var = tk.StringVar(value="0")
-        index_entry = tk.Entry(row1_frame, textvariable=self.index_var, 
-                              width=10, font=('Arial', 10))
-        index_entry.pack(side='left', padx=(5, 20))
-        
+        index_entry = tk.Entry(row1_frame, textvariable=self.index_var,
+                              width=6, font=('Arial', 10))
+        index_entry.pack(side='left', padx=(5, 3))
+
+        tk.Button(row1_frame, text="📋", command=self.abrir_selecao_indice,
+                 font=('Arial', 9), bg='#3498db', fg='white',
+                 padx=4, pady=0).pack(side='left', padx=(0, 20))
+
         # Tempo de Espera
-        tk.Label(row1_frame, text="Tempo de Espera (s):", 
+        tk.Label(row1_frame, text="Tempo de Espera (s):",
                 font=('Arial', 10), bg='#f0f0f0').pack(side='left')
         self.tempo_var = tk.StringVar(value="1.5")
-        tempo_entry = tk.Entry(row1_frame, textvariable=self.tempo_var, 
-                              width=10, font=('Arial', 10))
+        tempo_entry = tk.Entry(row1_frame, textvariable=self.tempo_var,
+                              width=8, font=('Arial', 10))
         tempo_entry.pack(side='left', padx=5)
-        
+
+        # Preview do item correspondente ao índice digitado
+        row1b_frame = tk.Frame(config_frame, bg='#f0f0f0')
+        row1b_frame.pack(fill='x', padx=10, pady=(0, 6))
+        self.indice_preview_label = tk.Label(row1b_frame, text="",
+                                            font=('Arial', 9, 'italic'),
+                                            bg='#f0f0f0', fg='#7f8c8d')
+        self.indice_preview_label.pack(side='left')
+        self.index_var.trace_add('write', lambda *_: self.atualizar_preview_indice())
+        self.atualizar_preview_indice()
+
         # Linha 2: Botão Configurar Dados
         row2_frame = tk.Frame(config_frame, bg='#f0f0f0')
         row2_frame.pack(fill='x', padx=10, pady=(5, 10))
