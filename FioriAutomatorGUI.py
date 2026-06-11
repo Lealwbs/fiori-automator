@@ -494,7 +494,7 @@ class FioriAutomatorGUI:
                 py.click()  # Criar atribuição de Destino
                 time.sleep(tempo_espera * 5)
 
-                py.press('tab', 2)  # Objeto Semântico
+                py.press('tab', 1)  # Objeto Semântico
                 self.type_text(objeto)
                 time.sleep(tempo_espera)
 
@@ -593,7 +593,7 @@ class FioriAutomatorGUI:
                 py.press('tab', 6)  # Gravar
                 time.sleep(tempo_espera / 2)
                 py.press('enter')
-                time.sleep(tempo_espera * 7)
+                time.sleep(tempo_espera * 2)
 
                 self.log_message(f"✅ {i} | {objeto} - {descricao} bloco adicionado")
                 
