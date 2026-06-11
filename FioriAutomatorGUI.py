@@ -5,6 +5,7 @@ import pyperclip as pc
 import keyboard as kb
 import time
 import threading
+import webbrowser
 from datetime import datetime
 
 class FioriAutomatorGUI:
@@ -554,17 +555,34 @@ class FioriAutomatorGUI:
         self.progress = ttk.Progressbar(main_frame, length=400, mode='determinate')
         self.progress.pack(fill='x', pady=(0, 10))
         
+        # Rodapé — criadores (empacotado antes do log para não ser espremido pelo expand)
+        footer_frame = tk.Frame(main_frame, bg='#f0f0f0')
+        footer_frame.pack(side='bottom', fill='x', pady=(4, 0))
+
+        def link(parent, texto, url):
+            lbl = tk.Label(parent, text=texto, font=('Arial', 8, 'underline'),
+                          bg='#f0f0f0', fg='#3498db', cursor='hand2')
+            lbl.pack(side='right', padx=2)
+            lbl.bind('<Button-1>', lambda _: webbrowser.open(url))
+
+        link(footer_frame, "Lealwbs", "https://www.linkedin.com/in/lealwbs/")
+        tk.Label(footer_frame, text="&",
+                font=('Arial', 8), bg='#f0f0f0', fg='#95a5a6').pack(side='right', padx=2)
+        link(footer_frame, "RenatoMAP77", "https://www.linkedin.com/in/renato-matos-alves-penna-646108276/")
+        tk.Label(footer_frame, text="Criado por",
+                font=('Arial', 8), bg='#f0f0f0', fg='#95a5a6').pack(side='right', padx=(0, 4))
+
         # Log de execução
-        log_frame = tk.LabelFrame(main_frame, text="📄 Log de Execução", 
+        log_frame = tk.LabelFrame(main_frame, text="📄 Log de Execução",
                                 font=('Arial', 12, 'bold'),
                                 bg='#f0f0f0', fg='#2c3e50')
         log_frame.pack(fill='both', expand=True)
-        
-        self.log_text = scrolledtext.ScrolledText(log_frame, height=15, 
+
+        self.log_text = scrolledtext.ScrolledText(log_frame, height=15,
                                                  font=('Consolas', 9),
                                                  bg='#2c3e50', fg='#ecf0f1')
         self.log_text.pack(fill='both', expand=True, padx=10, pady=10)
-        
+
         # Instruções iniciais
         self.log_message("=== FIORI AUTOMATOR INICIADO ===")
         self.log_message("📌 INSTRUÇÕES:")
@@ -706,24 +724,24 @@ class FioriAutomatorGUI:
                 py.press('tab', 1)  # Título
                 py.press('del')
                 self.type_text(descricao)
-                time.sleep(tempo_espera)
+                # time.sleep(tempo_espera)
 
                 py.press('tab', 3)  # Símbolo
                 self.type_text('sap-icon://action-settings')
-                time.sleep(tempo_espera)
+                # time.sleep(tempo_espera)
 
                 py.press('tab', 3)  # Objeto Semântico
                 self.type_text(objeto)
                 py.press('enter')
-                time.sleep(tempo_espera)
+                # time.sleep(tempo_espera)
 
                 py.press('tab', 1)  # Ação
                 self.type_text('display')
                 py.press('enter')
-                time.sleep(tempo_espera)
+                # time.sleep(tempo_espera)
 
                 py.press('tab', 6)  # Gravar
-                time.sleep(tempo_espera / 2)
+                # time.sleep(tempo_espera / 2)
                 py.press('enter')
                 time.sleep(tempo_espera * 2)
 
