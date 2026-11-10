@@ -25,13 +25,14 @@ O Fiori Automator GUI é uma solução completa de automação desenvolvida em P
 - **Status do Sistema**: Indicadores visuais do estado atual da execução
 
 ### 📊 Categorias de Dados Disponíveis
-- **GLOBAL**: Configurações gerais e de ambiente (20 itens)
-- **OUTBOUND**: Documentos fiscais e DFE (15 itens)  
-- **NFS-e**: Funcionalidades específicas de Nota Fiscal de Serviço (14 itens)
-- **4UNITY**: Integrações com fornecedores (8 itens)
-- **PARCEIRO**: Integração de parceiros de negócio (1 item)
+- **GLOBAL**: Configurações gerais e de ambiente (24 itens)
+- **OUTBOUND**: Documentos fiscais e DFE (23 itens)  
+- **NFS-e**: Funcionalidades específicas de Nota Fiscal de Serviço (15 itens)
+- **4UNITY**: Integrações com fornecedores (11 itens)
+- **PARCEIRO**: Integração de parceiros de negócio (4 item)
 - **4SERVICE**: Apontamentos e relatórios (4 itens)
-- **BANK**: Configurações bancárias e boletos (6 itens)
+- **BANK**: Configurações bancárias e boletos (8 itens)
+- **Customizadas**: Menu de transações Customizadas (5 itens)
 
 ### 🔧 Funcionalidades de Automação
 
@@ -133,6 +134,7 @@ python FioriAutomatorGUI.py
   - ✅ **PARCEIRO**: Para parceiros de negócio
   - ✅ **4SERVICE**: Para apontamentos de serviço
   - ✅ **BANK**: Para configurações bancárias
+  - ✅ **Customizadas**: Menu de transações Customizadas
 
 #### 3. Selecionar Script
 - **📝 Criar Atribuições de Destino**: Para cadastro inicial de transações
@@ -275,14 +277,14 @@ O projeto processa **68+ transações S4TAX organizadas por categorias**:
 
 | Categoria | Qtd Itens | Descrição |
 |-----------|-----------|-----------|
-| **GLOBAL** | 20 itens | Configurações gerais, ambiente, comunicação, monitoramento |
-| **OUTBOUND** | 15 itens | Documentos fiscais, DFE, status, conciliação |
-| **NFS-e** | 14 itens | Nota Fiscal de Serviço, configurações municipais |
-| **4UNITY** | 8 itens | Integrações com fornecedores, monitor, pedidos |
-| **PARCEIRO** | 1 item | Integração de parceiros de negócio |
+| **GLOBAL** | 24 itens | Configurações gerais, ambiente, comunicação, monitoramento |
+| **OUTBOUND** | 23 itens | Documentos fiscais, DFE, status, conciliação |
+| **NFS-e** | 15 itens | Nota Fiscal de Serviço, configurações municipais |
+| **4UNITY** | 11 itens | Integrações com fornecedores, monitor, pedidos |
+| **PARCEIRO** | 4 itens | Integração de parceiros de negócio |
 | **4SERVICE** | 4 itens | Apontamentos de serviço, relatórios de horas |
-| **BANK** | 6 itens | Configurações bancárias, boletos, compensação |
-
+| **BANK** | 8 itens | Configurações bancárias, boletos, compensação |
+| **Customizadas** | 5 itens | Geradores de requests, classes Model/BO, conversor JSON → CDS e consulta de classes| 
 ### 🏷️ Exemplos de Transações Incluídas
 
 **GLOBAL:**
