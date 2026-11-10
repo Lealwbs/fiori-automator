@@ -41,7 +41,7 @@ Caso você esteja lendo pelo repósitorio [FioriAutomator](https://github.com/Le
 | S4TAX_0001       | Configurações de ambiente            | Configurações de ambiente            |
 | S4TAX_0002       | Configurações de comunicação         | Configurações de comunicação         |
 | S4TAX_0003       | Habilitar tipo de documento fiscal   | Habilitar tipo de documento fiscal   |
-| S4TAX_0004       | Monitor de requisições ao Orbit      | Monitor de requisições ao Orbit      |
+| S4TAX_0004       | Monitor de requisições do Orbit      | Monitor de requisições do Orbit      |
 | S4TAX_0005       | Cadastro de Grupos SAP <-> Orbit     | Cadastro de Grupos SAP <-> Orbit     |
 | S4TAX_0006       | Cadastro de Empresas SAP <-> Orbit   | Cadastro de Empresas SAP <-> Orbit   |
 | S4TAX_0007       | Cadastro de Filiais SAP <-> Orbit    | Cadastro de Filiais SAP <-> Orbit    |
@@ -55,6 +55,9 @@ Caso você esteja lendo pelo repósitorio [FioriAutomator](https://github.com/Le
 | S4TAX_0015       | Configurações de envio de erros      | Configurações de envio de erros      |
 | S4TAX_0016       | Configurações tabelas CUTE           | Configurações tabelas CUTE           |
 | S4TAX_0017       | Configurações campos CUTE            | Configurações campos CUTE            |
+| S4TAX_0018       | Configurações de JOB's               | Configurações de JOB's               |
+| S4TAX_0019       | Monitor Pós Refresh                  | Monitor Pós Refresh                  |
+| S4TAX_0021       | Monitor de requests de transporte    | Monitor de requests de transporte    |
 | S4TAX_CUTE       | Editor de tabelas customizado        | Editor de tabelas customizado        |
 | S4TAX_MB_001     | Relatório de documentos              | Relatório de documentos              |
 | S4TAX_MENU       | Lista de transações por módulos 4Tax | Lista de transações por módulos 4Tax |
@@ -63,44 +66,52 @@ Caso você esteja lendo pelo repósitorio [FioriAutomator](https://github.com/Le
 <br>
 <h3> 📤 Outbound – Menu outbound </h3>
 
-| Objeto semântico  | Nome objeto semântico                | Descrição objeto semântico           |
-| ----------------- | ------------------------------------ | ------------------------------------ |
-| S4TAX_CCE\_PRINT  | Impressão de carta de correção dfe's | Impressão de carta de correção dfe's |
-| S4TAX_DFE\_001    | Configuração de e-mail para DFE's    | Configuração de e-mail para DFE's    |
-| S4TAX_DFE\_002    | Configurações gerais DF-e            | Configurações gerais DF-e            |
-| S4TAX_DFE\_003    | Gerador de cópias de dfe's           | Gerador de cópias de dfe's           |
-| S4TAX_DFE\_004    | Status de documentos fiscais         | Status de documentos fiscais         |
-| S4TAX_DFE\_005    | Download de dfe's em massa Remoto    | Download de dfe's em massa Remoto    |
-| S4TAX_DFE\_006    | Gerador de dfe's mockadas            | Gerador de dfe's mockadas            |
-| S4TAX_DFE\_007    | Envia e-mail com danfe/xml           | Envia e-mail com danfe/xml           |
-| S4TAX_DFE\_008    | Programa para simular emissões       | Programa para simular emissões       |
-| S4TAX_DFE\_009    | Configuração modelos e-mail DFE      | Configuração modelos e-mail DFE      |
-| S4TAX_DFE\_010    | Carga dos XMLs do SAP GRC NFe        | Carga dos XMLs do SAP GRC NFe        |
-| S4TAX_DFE\_011    | Download de dfe's em massa local     | Download de dfe's em massa local     |
-| S4TAX_DFE\_012    | Conciliação de documentos            | Conciliação de documentos            |
-| S4TAX_DFE\_013    | URL base do serviço de consulta      | URL base do serviço de consulta      |
-| S4TAX_DFE\_014    | Configurações Reforma Tributária     | Configurações Reforma Tributária     |
-| S4TAX_STATUS      | Status de documentos fiscais         | Status de documentos fiscais         |
+| Objeto semântico | Nome objeto semântico                | Descrição objeto semântico           |
+| ---------------- | ------------------------------------ | ------------------------------------ |
+| S4TAX_CCE\_PRINT | Impressão de carta de correção dfe's | Impressão de carta de correção dfe's |
+| S4TAX_DFE\_001   | Configuração de e-mail para DFE's    | Configuração de e-mail para DFE's    |
+| S4TAX_DFE\_002   | Configurações gerais DF-e            | Configurações gerais DF-e            |
+| S4TAX_DFE\_003   | Gerador de cópias de dfe's           | Gerador de cópias de dfe's           |
+| S4TAX_DFE\_004   | Status de documentos fiscais         | Status de documentos fiscais         |
+| S4TAX_DFE\_005   | Download de dfe's em massa Remoto    | Download de dfe's em massa Remoto    |
+| S4TAX_DFE\_006   | Gerador de dfe's mockadas            | Gerador de dfe's mockadas            |
+| S4TAX_DFE\_007   | Envia e-mail com danfe/xml           | Envia e-mail com danfe/xml           |
+| S4TAX_DFE\_008   | Programa para simular emissões       | Programa para simular emissões       |
+| S4TAX_DFE\_009   | Configuração modelos e-mail DFE      | Configuração modelos e-mail DFE      |
+| S4TAX_DFE\_010   | Carga dos XMLs do SAP GRC NFe        | Carga dos XMLs do SAP GRC NFe        |
+| S4TAX_DFE\_011   | Download de dfe's em massa local     | Download de dfe's em massa local     |
+| S4TAX_DFE\_012   | Conciliação de documentos            | Conciliação de documentos            |
+| S4TAX_DFE\_013   | URL base do serviço de consulta      | URL base do serviço de consulta      |
+| S4TAX_DFE\_014   | Configurações Reforma Tributária     | Configurações Reforma Tributária     |
+| S4TAX_DFE\_015   | Impressão de carta de correção dfe's | Impressão de carta de correção dfe's |
+| S4TAX_DFE\_016   | Filiais bloqueadas EPEC              | Filiais bloqueadas EPEC              |
+| S4TAX_DFE\_017   | Monitor de eventos RT                | Monitor de eventos RT                |
+| S4TAX_DFE\_018   | Configurações de JOB's - DFE         | Configurações de JOB's - DFE         |
+| S4TAX_DFE\_019   | Supressão de Enhancements Outbound   | Supressão de Enhancements Outbound   |
+| S4TAX_DFE\_020   | DE-PARA de Parceiros da NF-e ABI     | DE-PARA de Parceiros da NF-e ABI     |
+| S4TAX_DFE\_021   | Ajuste de campos tdfe                | Ajuste de campos tdfe                |
+| S4TAX_STATUS     | Status de documentos fiscais         | Status de documentos fiscais         |
 
 <br>
 <h3> 🧾 NFS-e – Menu NFSe </h3>
 
-| Objeto semântico     | Nome objeto semântico                | Descrição objeto semântico           |
-| -------------------- | ------------------------------------ | ------------------------------------ |
-| S4TAX_NFSE\_001      | Cadastro de categorias de nota NFS-e | Cadastro de categorias de nota NFS-e |
-| S4TAX_NFSE\_002      | Valores customizados do item NFS-e   | Valores customizados do item NFS-e   |
-| S4TAX_NFSE\_003      | Valores customizados da filial NFS-e | Valores customizados da filial NFS-e |
-| S4TAX_NFSE\_004      | Impostos NFS-e definidos na pricing  | Impostos NFS-e definidos na pricing  |
-| S4TAX_NFSE\_005      | Intervalo de numeração para RPS NFSe | Intervalo de numeração para RPS NFSe |
-| S4TAX_NFSE\_006      | Configuração Filial -> Município     | Configuração Filial -> Município     |
-| S4TAX_NFSE\_007      | Motivos de cancelamento NFS-e        | Motivos de cancelamento NFS-e        |
-| S4TAX_NFSE\_008      | Tipos de impostos NFS-e              | Tipos de impostos NFS-e              |
-| S4TAX_NFSE\_009      | Municípios com emissão por arquivo   | Municípios com emissão por arquivo   |
-| S4TAX_NFSE\_010      | Configurações default NFse           | Configurações default NFse           |
-| S4TAX_NFSE\_011      | Monitor de NFS-e                     | Monitor de NFS-e                     |
-| S4TAX_NFSE\_012      | Dashboard para documentos NFS-e      | Dashboard para documentos NFS-e      |
-| S4TAX_NFSE\_013      | Editor de dados para documentos NFSe | Editor de dados para documentos NFSe |
-| S4TAX_NFSE\_MONITOR  | Monitor de NFS-e                     | Monitor de NFS-e                     |
+| Objeto semântico    | Nome objeto semântico                | Descrição objeto semântico           |
+| ------------------- | ------------------------------------ | ------------------------------------ |
+| S4TAX_NFSE\_001     | Cadastro de categorias de nota NFS-e | Cadastro de categorias de nota NFS-e |
+| S4TAX_NFSE\_002     | Valores customizados do item NFS-e   | Valores customizados do item NFS-e   |
+| S4TAX_NFSE\_003     | Valores customizados da filial NFS-e | Valores customizados da filial NFS-e |
+| S4TAX_NFSE\_004     | Impostos NFS-e definidos na pricing  | Impostos NFS-e definidos na pricing  |
+| S4TAX_NFSE\_005     | Intervalo de numeração para RPS NFSe | Intervalo de numeração para RPS NFSe |
+| S4TAX_NFSE\_006     | Configuração Filial -> Município     | Configuração Filial -> Município     |
+| S4TAX_NFSE\_007     | Motivos de cancelamento NFS-e        | Motivos de cancelamento NFS-e        |
+| S4TAX_NFSE\_008     | Tipos de impostos NFS-e              | Tipos de impostos NFS-e              |
+| S4TAX_NFSE\_009     | Municípios com emissão por arquivo   | Municípios com emissão por arquivo   |
+| S4TAX_NFSE\_010     | Configurações default NFse           | Configurações default NFse           |
+| S4TAX_NFSE\_011     | Monitor de NFS-e                     | Monitor de NFS-e                     |
+| S4TAX_NFSE\_012     | Dashboard para documentos NFS-e      | Dashboard para documentos NFS-e      |
+| S4TAX_NFSE\_013     | Editor de dados para documentos NFSe | Editor de dados para documentos NFSe |
+| S4TAX_NFSE\_014     | Configurações de JOB's - NFS-e       | Configurações de JOB's - NFS-e       |
+| S4TAX_NFSE\_MONITOR | Monitor de NFS-e                     | Monitor de NFS-e                     |
 
 <br>
 <h3> 🧑‍💼 Portal de Fornecedores – Menu Partner Portal </h3>
@@ -108,23 +119,26 @@ Caso você esteja lendo pelo repósitorio [FioriAutomator](https://github.com/Le
 | Objeto semântico | Nome objeto semântico                | Descrição objeto semântico           |
 | ---------------- | ------------------------------------ | ------------------------------------ |
 | S4TAX_SUPP\_001  | Configurações gerais 4unity          | Configurações gerais 4unity          |
-| S4TAX_SUPP\_002  | Etapas documentos 4Unity             | Etapas documentos 4Unity             |
-| S4TAX_SUPP\_003  | Editor de dados de documentos 4Unity | Editor de dados de documentos 4Unity |
-| S4TAX_SUPP\_004  | Monitor 4Unity                       | Monitor 4Unity                       |
-| S4TAX_SUPP\_005  | Reintegração de fornecedores         | Reintegração de fornecedores         |
+| S4TAX_SUPP\_002  | Etapas de documentos 4Unity          | Etapas de documentos 4Unity          |
+| S4TAX_SUPP\_003  | Editor de dados de documentos        | Editor de dados de documentos        |
+| S4TAX_SUPP\_004  | Monitor de documentos                | Monitor de documentos                |
+| S4TAX_SUPP\_005  | Reintegração de fornecedoress        | Reintegração de fornecedoress        |
 | S4TAX_SUPP\_006  | Cadastro tag 4Unity em massa         | Cadastro tag 4Unity em massa         |
-| S4TAX_SUPP\_007  | Monitor pedido de compras            | Monitor pedido de compras            |
+| S4TAX_SUPP\_007  | Monitor de pedidos de compras        | Monitor de pedidos de compras        |
 | S4TAX_SUPP\_008  | Carga de parceiros para integração   | Carga de parceiros para integração   |
 | S4TAX_SUPP\_009  | Configuração tipos pedido de compra  | Configuração tipos pedido de compra  |
+| S4TAX_SUPP\_010  | Monitor de fornecedores              | Monitor de fornecedores              |
+| S4TAX_SUPP\_011  | Configurações de JOB's - 4Unity.     | Configurações de JOB's - 4Unity.     |
 
 <br>
 <h3> 🧍 Parceiro de Negócios – Menu Parceiro de Negócios </h3>
 
-| Objeto semântico | Nome objeto semântico        | Descrição objeto semântico   |
-| ---------------- | ---------------------------- | ---------------------------- |
-| S4TAX_PART\_001  | Integrar Parceiro de Negócio | Integrar Parceiro de Negócio |
-| S4TAX_PART\_002  | Monitor de parceiros         | Monitor de parceiros         |
-| S4TAX_PART\_003  | Configurações de parceiro    | Configurações de parceiro    |
+| Objeto semântico | Nome objeto semântico            | Descrição objeto semântico       |
+| ---------------- | -------------------------------- | -------------------------------- |
+| S4TAX_PART\_001  | Integrar Parceiro de Negócio     | Integrar Parceiro de Negócio     |
+| S4TAX_PART\_002  | Monitor de parceiros             | Monitor de parceiros             |
+| S4TAX_PART\_003  | Configurações de parceiro        | Configurações de parceiro        |
+| S4TAX_PART\_004  | Configurações de JOB's - PARTNER | Configurações de JOB's - PARTNER |
 
 
 <br>
@@ -148,8 +162,21 @@ Caso você esteja lendo pelo repósitorio [FioriAutomator](https://github.com/Le
 | S4TAX_BANK\_004  | Impostos para considerar descontos   | Impostos para considerar descontos   |
 | S4TAX_BANK\_005  | Configurações de Emissão Automática  | Configurações de Emissão Automática  |
 | S4TAX_BANK\_006  | Configurações de Data de Compensação | Configurações de Data de Compensação |
+| S4TAX_BANK\_008  | Monitor de Duplicatas                | Monitor de Duplicatas                |
+| S4TAX_BANK\_009  | Configuração de Manifestação         | Configuração de Manifestação         |
 
 
+
+<br>
+<h3> ⚙️ Customizadas – Menu de transações Customizadas </h3>
+
+| Objeto semântico | Nome objeto semântico           | Descrição objeto semântico      |
+| ---------------- | ------------------------------- | ------------------------------- |
+| ZS4TAX\_001      | Gerador Requests Externas ABAP  | Gerador Requests Externas ABAP  |
+| ZS4TAX\_002      | Gerador Código Classes Model/BO | Gerador Código Classes Model/BO |
+| ZS4TAX\_003      | Conversor de JSON para ABAP CDS | Conversor de JSON para ABAP CDS |
+| ZS4TAX\_004      | Gerador request externa completo | Gerador request externa completo |
+| ZS4TAX_NFSELIST  | Consulta de classe NFS-e        | Consulta de classe NFS-e        |
 
 <br>
 
