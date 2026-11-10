@@ -13,4 +13,11 @@ S4TAX_DFE_011	Download de dfe's em massa local	Download de dfe's em massa local
 S4TAX_DFE_012	Conciliação de documentos	Conciliação de documentos
 S4TAX_DFE_013	URL base do serviço de consulta	URL base do serviço de consulta
 S4TAX_DFE_014	Configurações Reforma Tributária	Configurações Reforma Tributária
+S4TAX_DFE_015	Impressão de carta de correção dfe's	Impressão de carta de correção dfe's
+S4TAX_DFE_016	Filiais bloqueadas EPEC	Filiais bloqueadas EPEC
+S4TAX_DFE_017	Monitor de eventos RT	Monitor de eventos RT
+S4TAX_DFE_018	Configurações de JOB's - DFE	Configurações de JOB's - DFE
+S4TAX_DFE_019	Supressão de Enhancements Outbound	Supressão de Enhancements Outbound
+S4TAX_DFE_020	DE-PARA de Parceiros da NF-e ABI	DE-PARA de Parceiros da NF-e ABI
+S4TAX_DFE_021	Ajuste de campos tdfe	Ajuste de campos tdfe
 S4TAX_STATUS	Status de documentos fiscais	Status de documentos fiscais
