@@ -39,7 +39,11 @@ class FioriAutomatorGUI:
                 ["S4TAX_0015", "/S4TAX/0015", "Configurações de envio de erros"],
                 ["S4TAX_0016", "/S4TAX/0016", "Configurações tabelas CUTE"],
                 ["S4TAX_0017", "/S4TAX/0017", "Configurações campos CUTE"],
+                ["S4TAX_0018", "/S4TAX/0018", "Configurações de JOB's"],
+                ["S4TAX_0019", "/S4TAX/0019", "Monitor Pós Refresh"],
+                ["S4TAX_0021", "/S4TAX/0021", "Monitor de requests de transporte"],
                 ["S4TAX_CUTE", "/S4TAX/CUTE", "Editor de tabelas customizado"],
+                ["S4TAX_MB_001", "/S4TAX/MB_001", "Relatório de documentos"],
                 ["S4TAX_MENU", "/S4TAX/MENU", "Lista de transações por módulos 4Tax"],
                 ["S4TAX_TASKS", "/S4TAX/TASKS", "Tarefas de instalação"],
             ],
@@ -59,6 +63,13 @@ class FioriAutomatorGUI:
                 ["S4TAX_DFE_012", "/S4TAX/DFE_012", "Conciliação de documentos"],
                 ["S4TAX_DFE_013", "/S4TAX/DFE_013", "URL base do serviço de consulta"],
                 ["S4TAX_DFE_014", "/S4TAX/DFE_014", "Configurações Reforma Tributária"],
+                ["S4TAX_DFE_015", "/S4TAX/DFE_015", "Impressão de carta de correção dfe's"],
+                ["S4TAX_DFE_016", "/S4TAX/DFE_016", "Filiais bloqueadas EPEC"],
+                ["S4TAX_DFE_017", "/S4TAX/DFE_017", "Monitor de eventos RT"],
+                ["S4TAX_DFE_018", "/S4TAX/DFE_018", "Configurações de JOB's - DFE"],
+                ["S4TAX_DFE_019", "/S4TAX/DFE_019", "Supressão de Enhancements Outbound"],
+                ["S4TAX_DFE_020", "/S4TAX/DFE_020", "DE-PARA de Parceiros da NF-e ABI"],
+                ["S4TAX_DFE_021", "/S4TAX/DFE_021", "Ajuste de campos tdfe"],
                 ["S4TAX_STATUS", "/S4TAX/STATUS", "Status de documentos fiscais"],
             ],
             "NFS-e": [
@@ -75,6 +86,7 @@ class FioriAutomatorGUI:
                 ["S4TAX_NFSE_011", "/S4TAX/NFSE_011", "Monitor de NFS-e"],
                 ["S4TAX_NFSE_012", "/S4TAX/NFSE_012", "Dashboard para documentos NFS-e"],
                 ["S4TAX_NFSE_013", "/S4TAX/NFSE_013", "Editor de dados para documentos NFSe"],
+                ["S4TAX_NFSE_014", "/S4TAX/NFSE_014", "Configurações de JOB's - NFS-e"],
                 ["S4TAX_NFSE_MONITOR", "/S4TAX/NFSE_MONITOR", "Monitor de NFS-e"],
             ],
             "4UNITY": [
@@ -87,11 +99,14 @@ class FioriAutomatorGUI:
                 ["S4TAX_SUPP_007", "/S4TAX/SUPP_007", "Monitor pedido de compras"],
                 ["S4TAX_SUPP_008", "/S4TAX/SUPP_008", "Carga de parceiros para integração"],
                 ["S4TAX_SUPP_009", "/S4TAX/SUPP_009", "Configuração tipos pedido de compra"],
+                ["S4TAX_SUPP_010", "/S4TAX/SUPP_010", "Monitor de fornecedores"],
+                ["S4TAX_SUPP_011", "/S4TAX/SUPP_011", "Configurações de JOB's - 4Unity."],
             ],
             "PARCEIRO": [
                 ["S4TAX_PART_001", "/S4TAX/PART_001", "Integrar Parceiro de Negócio"],
                 ["S4TAX_PART_002", "/S4TAX/PART_002", "Monitor de parceiros"],
                 ["S4TAX_PART_003", "/S4TAX/PART_003", "Configurações de parceiro"],
+                ["S4TAX_PART_004", "/S4TAX/PART_004", "Configurações de JOB's - PARTNER"],
             ],
             "4SERVICE": [
                 ["S4TAX_4SER_001", "/S4TAX/4SER_001", "Monitor apontamentos 4Service"],
@@ -106,6 +121,15 @@ class FioriAutomatorGUI:
                 ["S4TAX_BANK_004", "/S4TAX/BANK_004", "Impostos para considerar descontos"],
                 ["S4TAX_BANK_005", "/S4TAX/BANK_005", "Configurações de Emissão Automática"],
                 ["S4TAX_BANK_006", "/S4TAX/BANK_006", "Configurações de Data de Compensação"],
+                ["S4TAX_BANK_008", "/S4TAX/BANK_008", "Monitor de Duplicatas"],
+                ["S4TAX_BANK_009", "/S4TAX/BANK_009", "Configuração de Manifestação"],
+            ],
+            "CUSTOMIZADAS": [
+                ["ZS4TAX_001", "ZS4TAX_001", "Gerador Requests Externas ABAP"],
+                ["ZS4TAX_002", "ZS4TAX_002", "Gerador Código Classes Model/BO"],
+                ["ZS4TAX_003", "ZS4TAX_003", "Conversor de JSON para ABAP CDS"],
+                ["ZS4TAX_004", "ZS4TAX_004", "Gerador request externa completo"],
+                ["ZS4TAX_NFSELIST", "ZS4TAX_NFSELIST", "Consulta de classe NFS-e"],
             ]
         }
         
@@ -117,7 +141,8 @@ class FioriAutomatorGUI:
             "4UNITY": False,
             "PARCEIRO": True,  # Era a única outra que estava ativa no original
             "4SERVICE": False,
-            "BANK": False
+            "BANK": False,
+            "CUSTOMIZADAS": False
         }
         
         # Dados filtrados baseados na seleção
